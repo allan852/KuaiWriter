@@ -7,19 +7,20 @@ const url = require('url')
 let mainWindow
 
 function createWindow () {
-//创建浏览器窗口,宽高自定义具体大小你开心就好
-mainWindow = new BrowserWindow({width: 800, height: 600})
+  //创建浏览器窗口,宽高自定义具体大小你开心就好
+  mainWindow = new BrowserWindow({width: 800, height: 600})
 
-  /* 
-   * 加载应用-----  electron-quick-start中默认的加载入口
+  if (process.env.ELECTRON_ENV === 'production') {
+    // 加载应用-----  electron-quick-start中默认的加载入口
     mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'index.html'),
+      pathname: path.join(__dirname, 'build/index.html'),
       protocol: 'file:',
       slashes: true
     }))
-  */
-  // 加载应用----适用于 react 项目
-  mainWindow.loadURL('http://localhost:3000/');
+  } else {
+    // 加载应用----适用于 react 项目
+    mainWindow.loadURL('http://localhost:3000/');
+  }
   
   // 打开开发者工具，默认不打开
   // mainWindow.webContents.openDevTools()
