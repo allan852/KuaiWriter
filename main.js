@@ -1,7 +1,8 @@
 // 引入electron并创建一个Browserwindow
-const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
+const {app, BrowserWindow} = require('electron')
+const Store = require('electron-store')
 const debug = require('electron-debug')
 
 // 配置开发工具，增加快捷打开开发功能和刷新页面的快捷方式, 在正式环境下禁用
@@ -10,6 +11,12 @@ debug({
   showDevTools: false,
   devToolsMode: 'bottom'
 })
+
+// 配置APP存储和默认配置
+const store = new Store({
+  defaults: {}
+})
+
 
 // 保持window对象的全局引用,避免JavaScript对象被垃圾回收时,窗口被自动关闭.
 let mainWindow
