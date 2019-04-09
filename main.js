@@ -2,16 +2,24 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
+const debug = require('electron-debug')
+
+// 配置开发工具，增加快捷打开开发功能和刷新页面的快捷方式, 在正式环境下禁用
+debug({
+  enabled: process.env.ELECTRON_ENV !== 'production',
+  showDevTools: false,
+  devToolsMode: 'bottom'
+})
 
 // 保持window对象的全局引用,避免JavaScript对象被垃圾回收时,窗口被自动关闭.
 let mainWindow
 
 function createWindow () {
   //创建浏览器窗口,宽高自定义具体大小你开心就好
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, titleBarStyle: 'hiddenInset'})
 
   if (process.env.ELECTRON_ENV === 'production') {
-    // 加载应用-----  electron-quick-start中默认的加载入口
+    // 加载应用(React build 后的入口)
     mainWindow.loadURL(url.format({
       pathname: path.join(__dirname, 'build/index.html'),
       protocol: 'file:',
