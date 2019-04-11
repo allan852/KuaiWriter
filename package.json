@@ -2,7 +2,7 @@
   "name": "kuai-writer",
   "version": "0.1.0",
   "private": true,
-  "main": "src/main/main.js",
+  "main": "main.js",
   "homepage": ".",
   "dependencies": {
     "antd": "^3.16.2",

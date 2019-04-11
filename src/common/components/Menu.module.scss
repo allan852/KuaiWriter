@@ -9,3 +9,14 @@
   align-items: center;
   padding: 1rem;
 }
+
+.icon {
+  color: #cccccc !important;
+  font-size: 24px;
+}
+
+.active {
+  .icon {
+    color: #06d6fb !important;
+  }
+}

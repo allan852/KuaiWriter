@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
 import App from './App'
 import 'antd/dist/antd.css'
+import 'quill/dist/quill.bubble.css'
 import './index.css'
 
 ReactDOM.render(<App />, document.getElementById('root'))
