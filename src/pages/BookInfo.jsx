@@ -3,7 +3,7 @@ import {Layout, Icon} from 'antd'
 
 const {Header, Content} = Layout
 
-export default class Names extends Component {
+export default class BookInfo extends Component {
   state = {
     collapsed: false
   }
@@ -22,7 +22,7 @@ export default class Names extends Component {
           margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
         }}
         >
-          Names
+          Book Info
         </Content>
       </Layout>
     )

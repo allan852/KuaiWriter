@@ -3,7 +3,7 @@ import {Layout, Icon} from 'antd'
 
 const {Header, Content} = Layout
 
-export default class Addresses extends Component {
+export default class Locations extends Component {
   state = {
     collapsed: false
   }
@@ -22,7 +22,7 @@ export default class Addresses extends Component {
           margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
         }}
         >
-          Addresses
+          Locations
         </Content>
       </Layout>
     )

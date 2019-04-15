@@ -34,7 +34,7 @@ function createWindow () {
     }))
   } else {
     // 加载应用----适用于 react 项目
-    mainWindow.loadURL('http://localhost:3000/');
+    mainWindow.loadURL('http://localhost:3000/book/123');
   }
   
   // 打开开发者工具，默认不打开
