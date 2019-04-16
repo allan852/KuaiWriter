@@ -26,17 +26,17 @@ class Book extends Component {
           collapsible={false}
           collapsed={this.state.collapsed}
           width={70}
-          style={{'-webkit-app-region': 'drag', paddingTop: '30px'}}
+          style={{'-webkit-app-region': 'drag', paddingTop: '50px'}}
         >
           <BookMenu />
         </Sider>
         <Switch>
-          <Route exact path={`${match.url}/`} component={BookInfo} />
-          <Route exact path={`${match.url}/chapters`} component={Chapters} />
+          <Route path={`${match.url}/chapters`} component={Chapters} />
           <Route exact path={`${match.url}/characters`} component={Characters} />
           <Route exact path={`${match.url}/locations`} component={Locations} />
           <Route exact path={`${match.url}/maps`} component={Maps} />
           <Route exact path={`${match.url}/mindmaps`} component={MindMaps} />
+          <Route exact path={`${match.url}`} component={BookInfo} />
         </Switch>
       </Fragment>
     )

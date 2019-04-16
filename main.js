@@ -23,7 +23,7 @@ let mainWindow
 
 function createWindow () {
   //创建浏览器窗口,宽高自定义具体大小你开心就好
-  mainWindow = new BrowserWindow({width: 800, height: 600, titleBarStyle: 'hidden'})
+  mainWindow = new BrowserWindow({width: 1200, height: 900, titleBarStyle: 'hidden'})
 
   if (process.env.ELECTRON_ENV === 'production') {
     // 加载应用(React build 后的入口)

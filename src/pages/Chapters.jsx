@@ -1,150 +1,165 @@
 import React, {Component, Fragment} from 'react'
-import {Avatar, Button, Col, Icon, Input, Layout, List, Row} from 'antd'
-import Quill from 'quill'
+import {Button, Col, Icon, Layout, List, Row} from 'antd'
+import Search from "../common/components/Search";
+import {Route, Switch, withRouter} from "react-router-dom";
+import ChapterEditor from "../common/components/ChapterEditor";
+import ChapterListItem from "../common/components/ChapterListItem";
 
-const {Header, Content, Sider} = Layout
+const {Header, Sider} = Layout
 
-const data = [
+const data0 = [
   {
+    id: 0,
+    title: '封面',
+  }
+]
+
+const data1 = [
+  {
+    id: 1,
     title: 'Ant Design Title 1',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team1',
   },
   {
+    id: 2,
     title: 'Ant Design Title 2',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team2',
   },
   {
+    id: 3,
     title: 'Ant Design Title 3',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team3',
   },
   {
+    id: 4,
     title: 'Ant Design Title 4',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team4',
   },
   {
+    id: 5,
+    title: 'Ant Design Title 5',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team5',
+  },
+  {
+    id: 6,
+    title: 'Ant Design Title 6',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team6',
+  },
+  {
+    id: 7,
+    title: 'Ant Design Title 3',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
+  },
+  {
+    id: 8,
+    title: 'Ant Design Title 4',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
+  },
+  {
+    id: 9,
     title: 'Ant Design Title 1',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 10,
     title: 'Ant Design Title 2',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 11,
     title: 'Ant Design Title 3',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 12,
     title: 'Ant Design Title 4',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 13,
     title: 'Ant Design Title 1',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 14,
     title: 'Ant Design Title 2',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 15,
     title: 'Ant Design Title 3',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
   {
+    id: 16,
     title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
+    content: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
   },
 ];
 
-export default class Chapters extends Component {
-  constructor(props) {
-    super(props)
-    this.editorRef = React.createRef()
-    this.state = {
-      collapsed: false
-    }
-  }
-
-  componentDidMount() {
-    console.log('this.editorRef.current', this.editorRef.current)
-    if (this.editorRef.current) {
-      var options = {
-        debug: 'info',
-        modules: {
-          toolbar: false,
-        },
-        placeholder: '输入正文',
-        theme: 'bubble',
-        bounds: document.body,
-      };
-      this.editor = new Quill(this.editorRef.current, options)
-      this.editor.focus()
-    }
-  }
-
+class Chapters extends Component {
   render() {
+    const {location, match} = this.props
+    console.log('chapters route', location, match)
     return (
       <Fragment>
-        <Sider theme='light' width={260}>
-          <Header style={{'-webkit-app-region': 'drag', background: '#fff', padding: '0'}}>
-            <Row type="flex" justify="space-around" align="middle">
-              <Col span={20} style={{textAlign: 'center'}}>
-                <Input
-                  placeholder="搜索"
-                  size="small"
-                  prefix={<Icon type="search" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                  style={{width: '200px'}}
-                />
-              </Col>
-              <Col span={4} style={{textAlign: 'left'}}>
-                <Button size="small"><Icon type="plus"/></Button>
-              </Col>
-            </Row>
-          </Header>
-          <Layout style={{height: 'calc( 100% - 64px )', overflowY: 'scroll'}}>
-            <List
-              itemLayout="horizontal"
-              dataSource={data}
-              renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
-                    title={<a href="https://ant.design">{item.title}</a>}
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                  />
-                </List.Item>
-              )}
-            />
-          </Layout>
-        </Sider>
         <Layout style={{borderLeft: '1px solid #e8e8e8'}}>
           <Header style={{
             '-webkit-app-region': 'drag',
             // background: '#f0f2f5',
             background: '#ffffff',
-            padding: 0,
+            padding: '0 8px',
             borderBottom: '1px solid #e8e8e8'
           }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
-              style={{marginLeft: '16px'}}
-            />
+            <Row type="flex" justify="space-between" align="middle">
+              <Col span={20} style={{textAlign: 'left'}}>
+                <Search/>
+              </Col>
+              <Col span={4} style={{textAlign: 'right'}}>
+                <Button><Icon type="plus"/></Button>
+              </Col>
+            </Row>
           </Header>
           <Layout style={{height: 'calc( 100% - 64px )', overflowY: 'scroll'}}>
-            <Content style={{height: '100%', padding: '0', background: '#fff' }}>
-              <div
-                style={{
-                  background: '#fff',
-                  fontSize: '16px',
-                }}
-                ref={this.editorRef}
-              >
-              </div>
-            </Content>
+            <Sider theme='light' width={330}>
+              <Layout style={{height: '100%', overflowY: 'scroll'}}>
+                <List
+                  itemLayout="horizontal"
+                  dataSource={data0}
+                  renderItem={item => (
+                    <List.Item>
+                      <List.Item.Meta
+                        avatar={<Icon type="file-text" />}
+                        title={<a href="https://ant.design">{item.title}</a>}
+                      />
+                    </List.Item>
+                  )}
+                />
+                <List
+                  header={<div>第一卷</div>}
+                  itemLayout="horizontal"
+                  dataSource={data1}
+                  renderItem={item => (
+                    <List.Item style={{padding: 0}}>
+                      <ChapterListItem item={item}/>
+                    </List.Item>
+                  )}
+                />
+              </Layout>
+            </Sider>
+            <Switch>
+              {
+                data1.map(item => (
+                  <Route exact path={`${match.url}/${item.id}`} render={() => <ChapterEditor chapter={item}/>} />
+                ))
+              }
+              <Route exact path={`${match.url}`} component={ChapterEditor} />
+            </Switch>
           </Layout>
         </Layout>
       </Fragment>
     )
   }
 }
+
+export default withRouter(Chapters)
