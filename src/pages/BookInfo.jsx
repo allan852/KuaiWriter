@@ -1,14 +1,18 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {Layout, Icon} from 'antd'
+import {withRouter} from "react-router-dom";
+import BookMenu from "../common/components/BookMenu";
 
-const {Header, Content} = Layout
+const {Header, Content, Sider} = Layout
 
-export default class BookInfo extends Component {
+class BookInfo extends Component {
   state = {
     collapsed: false
   }
 
   render() {
+    const {location, match} = this.props
+    console.log('BookInfo', location, match)
     return (
       <Layout>
         <Header style={{ background: '#fff', padding: 0 }}>
@@ -28,3 +32,5 @@ export default class BookInfo extends Component {
     )
   }
 }
+
+export default withRouter(BookInfo)

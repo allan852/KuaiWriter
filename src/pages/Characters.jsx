@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {Layout, Icon} from 'antd'
+import BookMenu from "../common/components/BookMenu";
 
-const {Header, Content} = Layout
+const {Header, Content, Sider} = Layout
 
 export default class Characters extends Component {
   state = {

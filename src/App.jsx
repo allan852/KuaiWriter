@@ -22,8 +22,8 @@ class App extends Component {
       <BrowserRouter>
         <Layout style={{height: '100vh'}}>
           <Switch>
+            <Route path='/book/:id' component={Book} />
             <Route exact path='/' component={Index} />
-            <Route path='/book' component={Book} />
           </Switch>
         </Layout>
       </BrowserRouter>

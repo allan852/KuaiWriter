@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react'
-import {Layout} from 'antd'
-import BookMenu from "../common/components/BookMenu";
 import {Route, withRouter, Switch} from "react-router-dom";
 import Chapters from "./Chapters";
 import BookInfo from "./BookInfo";
@@ -8,6 +6,8 @@ import Characters from "./Characters";
 import Locations from "./Locations";
 import Maps from "./Maps";
 import MindMaps from "./MindMaps";
+import BookMenu from "../common/components/BookMenu";
+import {Layout} from "antd";
 
 const {Sider} = Layout
 
@@ -17,7 +17,7 @@ class Book extends Component {
   }
 
   render() {
-    const {location, history, match} = this.props
+    const {location, match} = this.props
     console.log('book', location, match)
     return (
       <Fragment>
@@ -31,12 +31,12 @@ class Book extends Component {
           <BookMenu />
         </Sider>
         <Switch>
-          <Route path={`${match.url}/:id`} component={BookInfo} />
-          <Route path={`${match.url}/:id/chapters`} component={Chapters} />
-          <Route path={`${match.url}/:id/characters`} component={Characters} />
-          <Route path={`${match.url}/:id/locations`} component={Locations} />
-          <Route path={`${match.url}/:id/maps`} component={Maps} />
-          <Route path={`${match.url}/:id/mindmaps`} component={MindMaps} />
+          <Route exact path={`${match.url}/`} component={BookInfo} />
+          <Route exact path={`${match.url}/chapters`} component={Chapters} />
+          <Route exact path={`${match.url}/characters`} component={Characters} />
+          <Route exact path={`${match.url}/locations`} component={Locations} />
+          <Route exact path={`${match.url}/maps`} component={Maps} />
+          <Route exact path={`${match.url}/mindmaps`} component={MindMaps} />
         </Switch>
       </Fragment>
     )

@@ -5,7 +5,8 @@ import style from './BookMenu.module.scss'
 
 class BookMenu extends Component {
   render() {
-    const {location, history, match} = this.props
+    const {location, match} = this.props
+    console.log('menu', location, match)
     return (
       <ul className={style.menu}>
         <li className={style.menu_item}>
