@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Icon, Input, Tooltip} from 'antd'
+import {Icon, Input} from 'antd'
 import {withRouter} from 'react-router-dom'
 import style from './Search.module.scss'
 

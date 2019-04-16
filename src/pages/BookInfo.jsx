@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {Layout, Icon} from 'antd'
 import {withRouter} from "react-router-dom";
-import BookMenu from "../common/components/BookMenu";
 
 const {Header, Content, Sider} = Layout
 

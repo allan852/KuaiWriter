@@ -47,7 +47,7 @@ class ChapterEditor extends Component {
     const {chapter} = this.props
     if (prevProps.chapter.id === chapter.id) return
     if (this.editor) {
-      this.editor.focus()
+      // this.editor.focus()
       this.editor.setText(chapter.content)
     }
   }

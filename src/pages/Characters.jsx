@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import {Layout, Icon} from 'antd'
 import BookMenu from "../common/components/BookMenu";
 
