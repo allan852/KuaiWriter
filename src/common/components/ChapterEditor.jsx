@@ -39,7 +39,7 @@ class ChapterEditor extends Component {
       };
       this.editor = new Quill(this.editorRef.current, options)
       this.editor.focus()
-      this.editor.setText(chapter.content)
+      this.editor.setText(chapter.content || "")
     }
   }
 
@@ -48,7 +48,7 @@ class ChapterEditor extends Component {
     if (prevProps.chapter.id === chapter.id) return
     if (this.editor) {
       // this.editor.focus()
-      this.editor.setText(chapter.content)
+      this.editor.setText(chapter.content || "")
     }
   }
 

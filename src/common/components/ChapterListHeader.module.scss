@@ -1,12 +1,32 @@
 @import '../constants.scss';
 
-.chapter_list_item {
+.chapter_list_header {
+  position: relative;
   display: flex;
   background: #ffffff;
-  padding: 12px 0;
+  padding: 12px 8px;
   &.active {
     background: #e8e8e8;
   }
+  &:hover {
+    .editor_indicator {
+      display: block;
+      transition: all 1s;
+    }
+  }
+}
+
+.editor_indicator {
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  display: none;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 600;
+  display: inline-block;
 }
 
 .icon {

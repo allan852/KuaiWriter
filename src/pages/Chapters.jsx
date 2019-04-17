@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react'
-import {Button, Col, Icon, Layout, List, Row} from 'antd'
-import Search from "../common/components/Search";
+import {Button, Icon, Layout, List} from 'antd'
 import {Route, Switch, withRouter} from "react-router-dom";
 import ChapterEditor from "../common/components/ChapterEditor";
 import ChapterListItem from "../common/components/ChapterListItem";
+import ContentHeader from "../common/components/ContentHeader";
+import ChapterListHeader from "../common/components/ChapterListHeader";
 
-const {Header, Sider} = Layout
+const {Sider} = Layout
 
 const data0 = [
   {
@@ -104,24 +105,11 @@ class Chapters extends Component {
     return (
       <Fragment>
         <Layout style={{borderLeft: '1px solid #e8e8e8'}}>
-          <Header style={{
-            '-webkit-app-region': 'drag',
-            // background: '#f0f2f5',
-            background: '#ffffff',
-            padding: '0 8px',
-            borderBottom: '1px solid #e8e8e8'
-          }}>
-            <Row type="flex" justify="space-between" align="middle">
-              <Col span={20} style={{textAlign: 'left'}}>
-                <Search/>
-              </Col>
-              <Col span={4} style={{textAlign: 'right'}}>
-                <Button><Icon type="plus"/></Button>
-              </Col>
-            </Row>
-          </Header>
+          <ContentHeader>
+            <Button><Icon type="plus"/></Button>
+          </ContentHeader>
           <Layout style={{height: 'calc( 100% - 64px )', overflowY: 'scroll'}}>
-            <Sider theme='light' width={330}>
+            <Sider theme='light' width={330} style={{borderRight: '1px solid #e8e8e8'}}>
               <Layout style={{height: '100%', overflowY: 'scroll'}}>
                 <List
                   itemLayout="horizontal"
@@ -136,7 +124,7 @@ class Chapters extends Component {
                   )}
                 />
                 <List
-                  header={<div>第一卷</div>}
+                  header={<ChapterListHeader />}
                   itemLayout="horizontal"
                   dataSource={data1}
                   renderItem={item => (
